@@ -68,6 +68,6 @@ UIStudio is a React component library built with TypeScript and TailwindCSS. Pro
 ## 5. Milestones
 
 - [x] Phase 1-2: Setup + core utilities (this build)
-- [ ] Phase 3: All components
-- [ ] Phase 4: Export + docs
-- [ ] Phase 5: Deployment
+- [x] Phase 3: All components (Button, Input, Select, Card, Modal, Badge, Avatar, Checkbox, Toggle, Spinner)
+- [x] Phase 4: Export + docs (index.ts barrel export + comprehensive README.md with props tables)
+- [x] Phase 5: Deployment (vercel.json, fly.toml, railway.json, render.yaml)
