@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { forwardRef, ButtonHTMLAttributes } from 'react';
 import { cn } from '../utils/cn';
 import type { Variant, Size, ComponentProps } from '../types';
 
@@ -16,7 +16,7 @@ const sizes: Record<Size, string> = {
   lg: 'px-6 py-3 text-lg',
 };
 
-interface ButtonProps extends ComponentProps {
+interface ButtonProps extends ComponentProps, ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: Variant;
   size?: Size;
   disabled?: boolean;

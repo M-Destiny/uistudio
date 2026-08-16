@@ -1,18 +1,18 @@
-import { forwardRef, useId } from 'react';
+import { forwardRef, SelectHTMLAttributes, useId } from 'react';
 import { cn } from '../utils/cn';
 
-interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   label?: string;
   error?: string;
   hint?: string;
 }
 
-export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ label, error, hint, id, className, ...props }, ref) => {
+export const Select = forwardRef<HTMLSelectElement, SelectProps>(
+  ({ label, error, hint, id, className, children, ...props }, ref) => {
     const reactId = useId();
-    const inputId = id ?? reactId;
-    const errorId = `${inputId}-error`;
-    const hintId = `${inputId}-hint`;
+    const selectId = id ?? reactId;
+    const errorId = `${selectId}-error`;
+    const hintId = `${selectId}-hint`;
 
     const describedBy =
       [error && errorId, hint && hintId].filter(Boolean).join(' ') || undefined;
@@ -21,16 +21,15 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       <div className="space-y-1">
         {label && (
           <label
-            htmlFor={inputId}
+            htmlFor={selectId}
             className="block text-sm font-medium text-gray-700 dark:text-gray-200"
           >
             {label}
           </label>
         )}
-        <input
+        <select
           ref={ref}
-          id={inputId}
-          role="textbox"
+          id={selectId}
           aria-invalid={error ? true : undefined}
           aria-describedby={describedBy}
           className={cn(
@@ -41,7 +40,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             className,
           )}
           {...props}
-        />
+        >
+          {children}
+        </select>
         {hint && !error && (
           <p id={hintId} className="text-sm text-gray-500 dark:text-gray-400">
             {hint}
@@ -56,4 +57,4 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     );
   },
 );
-Input.displayName = 'Input';
+Select.displayName = 'Select';
