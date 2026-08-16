@@ -15,7 +15,7 @@
 | `Modal` | Accessible dialog with backdrop | — | — |
 | `Badge` | Status/category badge | default, blue, green, red, yellow | — |
 | `Avatar` | Image with fallback initials | — | sm, md, lg |
-| `Spinner` | Loading indicator | — | sm, md, lg |
+| `Spinner` | Loading indicator | primary, white, gray | sm, md, lg |
 
 ## Utilities
 
@@ -100,6 +100,8 @@ import { Button, Input, Card, CardHeader, CardContent, Modal, Badge, Avatar, Spi
 // Spinner
 <Spinner size="md" />
 <Spinner size="lg" />
+<Spinner color="white" label="Saving…" />
+<Spinner color="gray" size="sm" />
 
 // Utility: cn() for conditional classnames
 <div className={cn('base-class', condition && 'conditional-class')} />
@@ -189,6 +191,8 @@ const isMobile = useMediaQuery('(max-width: 768px)');
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `size` | `'sm' \| 'md' \| 'lg'` | `'md'` | Spinner size |
+| `color` | `'primary' \| 'white' \| 'gray'` | `'primary'` | Color variant (use `white` on dark backgrounds) |
+| `label` | `string` | `'Loading'` | Accessible label for screen readers |
 | `className` | `string` | — | Additional classes |
 
 ## Scripts
