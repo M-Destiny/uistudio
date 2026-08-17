@@ -16,12 +16,31 @@ const sizes: Record<Size, string> = {
   lg: 'px-6 py-3 text-lg',
 };
 
+/**
+ * Button component props.
+ */
 interface ButtonProps extends ComponentProps, ButtonHTMLAttributes<HTMLButtonElement> {
+  /** Visual style variant. Defaults to 'primary'. */
   variant?: Variant;
+  /** Button size. Defaults to 'md'. */
   size?: Size;
+  /** Disable interaction. Defaults to false. */
   disabled?: boolean;
 }
 
+/**
+ * A versatile button component with multiple variants and sizes.
+ *
+ * @example
+ * <Button variant="primary" size="md">Click me</Button>
+ * <Button variant="secondary">Secondary</Button>
+ * <Button variant="outline">Outline</Button>
+ * <Button variant="ghost">Ghost</Button>
+ * <Button variant="destructive">Delete</Button>
+ * <Button size="sm">Small</Button>
+ * <Button size="lg">Large</Button>
+ * <Button disabled>Disabled</Button>
+ */
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ({ variant = 'primary', size = 'md', disabled, className, children, ...props }, ref) => (
     <button
