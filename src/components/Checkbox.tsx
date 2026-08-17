@@ -2,12 +2,26 @@ import { forwardRef, useId, InputHTMLAttributes } from 'react';
 import { cn } from '../utils/cn';
 import { Check } from 'lucide-react';
 
+/**
+ * Checkbox component props.
+ */
 interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'checked' | 'defaultChecked'> {
+  /** Label text displayed next to the checkbox. */
   label?: string;
+  /** Controlled checked state. */
   checked?: boolean;
+  /** Uncontrolled initial checked state. */
   defaultChecked?: boolean;
 }
 
+/**
+ * A styled checkbox component with label support.
+ *
+ * @example
+ * <Checkbox label="I agree to terms" />
+ * <Checkbox label="Subscribe" defaultChecked />
+ * <Checkbox label="Controlled" checked={isChecked} onChange={setIsChecked} />
+ */
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   ({ label, className, disabled, checked, defaultChecked, ...props }, ref) => {
     const checkboxId = useId();

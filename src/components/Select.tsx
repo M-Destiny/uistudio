@@ -1,12 +1,32 @@
 import { forwardRef, SelectHTMLAttributes, useId } from 'react';
 import { cn } from '../utils/cn';
 
+/**
+ * Select component props.
+ */
 interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
+  /** Label text displayed above the select. */
   label?: string;
+  /** Error message displayed below the select. */
   error?: string;
+  /** Hint text displayed below the select (hidden when error is present). */
   hint?: string;
 }
 
+/**
+ * A styled select dropdown component with label, hint, and error state.
+ *
+ * @example
+ * <Select label="Country" error="Required">
+ *   <option value="">Select...</option>
+ *   <option value="us">United States</option>
+ *   <option value="uk">United Kingdom</option>
+ * </Select>
+ * <Select label="Theme" hint="Choose your preference">
+ *   <option value="light">Light</option>
+ *   <option value="dark">Dark</option>
+ * </Select>
+ */
 export const Select = forwardRef<HTMLSelectElement, SelectProps>(
   ({ label, error, hint, id, className, children, ...props }, ref) => {
     const reactId = useId();

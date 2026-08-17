@@ -3,12 +3,27 @@ import { X } from 'lucide-react';
 import { cn } from '../utils/cn';
 import type { ComponentProps } from '../types';
 
+/**
+ * Modal component props.
+ */
 interface ModalProps extends ComponentProps {
+  /** Whether the modal is visible. */
   open: boolean;
+  /** Called when the modal should close (backdrop click or Escape key). */
   onClose: () => void;
+  /** Optional title displayed in the modal header. */
   title?: string;
 }
 
+/**
+ * An accessible modal dialog with backdrop, header, and close button.
+ *
+ * @example
+ * <Modal open={isOpen} onClose={() => setIsOpen(false)} title="Confirm">
+ *   <p>Are you sure?</p>
+ *   <Button onClick={() => setIsOpen(false)}>Confirm</Button>
+ * </Modal>
+ */
 export function Modal({ open, onClose, title, children, className }: ModalProps) {
   useEffect(() => {
     const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };

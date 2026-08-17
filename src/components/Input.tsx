@@ -1,12 +1,26 @@
 import { forwardRef, useId } from 'react';
 import { cn } from '../utils/cn';
 
+/**
+ * Input component props.
+ */
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
+  /** Label text displayed above the input. */
   label?: string;
+  /** Error message displayed below the input. */
   error?: string;
+  /** Hint text displayed below the input (hidden when error is present). */
   hint?: string;
 }
 
+/**
+ * A text input component with label, hint, and error state.
+ *
+ * @example
+ * <Input label="Email" placeholder="you@example.com" />
+ * <Input label="Password" type="password" error="Invalid password" />
+ * <Input label="Username" hint="Must be unique" />
+ */
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ label, error, hint, id, className, ...props }, ref) => {
     const reactId = useId();

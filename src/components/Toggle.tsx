@@ -1,10 +1,22 @@
 import { forwardRef, InputHTMLAttributes } from 'react';
 import { cn } from '../utils/cn';
 
+/**
+ * Toggle component props.
+ */
 interface ToggleProps extends InputHTMLAttributes<HTMLInputElement> {
+  /** Label text displayed next to the toggle (alternative: use children). */
   label?: string;
 }
 
+/**
+ * An on/off toggle switch component with label support.
+ *
+ * @example
+ * <Toggle label="Enable notifications" />
+ * <Toggle label="Dark mode" defaultChecked />
+ * <Toggle disabled>Disabled</Toggle>
+ */
 export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(
   ({ label, children, className, disabled, ...props }, ref) => {
     const toggleId = `toggle-${Math.random().toString(36).slice(2, 9)}`;
