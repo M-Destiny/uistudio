@@ -8,6 +8,7 @@
 |-----------|-------------|----------|-------|
 | `Button` | Primary action button | primary, secondary, outline, ghost, destructive | sm, md, lg |
 | `Input` | Text input with label + error state | — | — |
+| `Textarea` | Multiline text input with label + error + hint | — | — |
 | `Select` | Styled select dropdown | — | — |
 | `Checkbox` | Styled checkbox with label | — | — |
 | `Toggle` | On/off toggle switch | — | — |
@@ -40,7 +41,7 @@ npm install uistudio
 ## Usage
 
 ```tsx
-import { Button, Input, Card, CardHeader, CardContent, Modal, Badge, Avatar, Spinner, Toggle, Select, Checkbox, cn, useMediaQuery } from 'uistudio';
+import { Button, Input, Textarea, Card, CardHeader, CardContent, Modal, Badge, Avatar, Spinner, Toggle, Select, Checkbox, cn, useMediaQuery } from 'uistudio';
 
 // Button with variants and sizes
 <Button variant="primary" size="md">Click me</Button>
@@ -55,6 +56,10 @@ import { Button, Input, Card, CardHeader, CardContent, Modal, Badge, Avatar, Spi
 // Input with label and error
 <Input label="Email" placeholder="you@example.com" />
 <Input label="Password" type="password" error="Invalid password" />
+
+// Textarea with label, error, and hint
+<Textarea label="Message" placeholder="Enter your message" />
+<Textarea label="Bio" error="Too long" hint="Max 500 characters" />
 
 // Select with label and error
 <Select label="Country" error="Required">
@@ -129,6 +134,15 @@ const isMobile = useMediaQuery('(max-width: 768px)');
 | `error` | `string` | — | Error message |
 | `className` | `string` | — | Additional classes |
 | `...props` | `InputHTMLAttributes` | — | Native input props |
+
+### Textarea
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `label` | `string` | — | Label text |
+| `error` | `string` | — | Error message |
+| `hint` | `string` | — | Hint text |
+| `className` | `string` | — | Additional classes |
+| `...props` | `TextareaHTMLAttributes` | — | Native textarea props |
 
 ### Select
 | Prop | Type | Default | Description |
